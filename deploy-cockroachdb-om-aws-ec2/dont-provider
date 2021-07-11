@@ -1,0 +1,14 @@
+provider "aws" {
+  region  = lookup(var.environment_to_region_map, terraform.workspace, "us-east-1")
+  profile = lookup(var.environment_to_profile_map, terraform.workspace, "default")
+}
+
+terraform {
+  backend "s3" {
+    bucket         = "terraform-up-and-running-state"
+    region         = var.environment_to_region_map[terraform.workspace]
+    key            = "terraform-state"
+    profile        = var.environment_to_profile_map[terraform.workspace]
+    dynamodb_table = "tfstate"
+  }
+}
