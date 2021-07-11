@@ -11,8 +11,6 @@ module "tf_backend" {
   source = "git::https://github.com/sharmajee1/cockroachdb-on-aws.git//terraform-modules/s3-backend"
 
   bucket_prefix = var.prefix
-  bucket_region = var.region
-
   bucket_sse_algorithm = var.algorithm
 
   assume_policy = {}
