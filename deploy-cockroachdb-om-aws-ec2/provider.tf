@@ -5,10 +5,9 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket         = "terraform-up-and-running-state"
-    region         = var.environment_to_region_map[terraform.workspace]
+    bucket         = abhishek-terraform-backend
+    region         = ap-south-1
     key            = "terraform-state"
-    profile        = var.environment_to_profile_map[terraform.workspace]
-    dynamodb_table = "tfstate"
+    dynamodb_table = "terraform-lock"
   }
 }

@@ -32,7 +32,7 @@ variable "environment_to_region_map" {
   type = map
   description = "Map region for env"
   default = {
-    dev     = "us-east-1"
+    dev     = "ap-south-1"
     qa      = "us-east-1"
     staging = "us-east-1"
     prod    = "us-east-2"
