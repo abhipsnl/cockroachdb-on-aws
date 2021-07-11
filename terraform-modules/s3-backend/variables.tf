@@ -9,11 +9,6 @@ variable "bucket_sse_algorithm" {
   default     = "AES256"
 }
 
-variable "workspaces" {
-  type        = list(string)
-  description = "A list of terraform workspaces that IAM Roles/Policy will be created for"
-}
-
 variable "assume_policy" {
   type        = map(string)
   description = "A map that allows you to specify additional AWS principles that will be added to the backend roles assume role policy"
