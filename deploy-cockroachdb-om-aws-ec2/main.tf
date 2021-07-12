@@ -4,6 +4,7 @@ locals {
   region = local.environment == "dev" ? lookup(var.environment_to_region_map, terraform.workspace, "ap-south-1") : var.environment_to_region_map[local.environment]
   ami = var.ami[local.region]
   count = lookup(var.instance_count, terraform.workspace, "2")
+  instance_type = var.instance_type[local.environment]
 }
 
 module "create_vpc" {
@@ -14,4 +15,5 @@ module "create_vpc" {
   region = local.region
   instance_count = local.count
   ami = local.ami
+  instance_type = local.instance_type
 }

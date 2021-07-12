@@ -1,7 +1,7 @@
 resource "aws_instance" "cockroachdb-node" {
     count = var.instance_count
-    ami = lookup(var.ami, var.region)
-    instance_type = "t2.micro"
+    ami = var.ami
+    instance_type = var.instance_type
 
     # VPC
     subnet_id = aws_subnet.test-subnet-public-1.id

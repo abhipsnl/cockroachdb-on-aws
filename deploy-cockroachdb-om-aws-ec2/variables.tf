@@ -82,3 +82,14 @@ variable "public_key_path" {
 variable "ec2_user" {
   default = "ubuntu"
 }
+
+variable "instance_type" {
+  type = map
+  description = "Map instance type based on the workspace"
+  default = {
+    dev     = "c5d.4xlarge"
+    qa      = "c5d.4xlarge"
+    staging = "c5d.4xlarge"
+    prod    = "c5d.4xlarge"
+  }
+
