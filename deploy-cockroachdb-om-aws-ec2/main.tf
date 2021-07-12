@@ -16,4 +16,5 @@ module "create_cockroachdb_environment" {
   instance_count = local.count
   ami = local.ami
   instance_type = local.instance_type
+  ec2_user = var.ec2_user
 }
