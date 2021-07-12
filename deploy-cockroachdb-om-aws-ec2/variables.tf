@@ -43,7 +43,7 @@ variable "environment_to_profile_map" {
   type = map
   description = "Map aws cli profile based on the workspace"
   default = {
-    dev     = "aws-dev-profile"
+    dev     = "test-profile"
     qa      = "aws-qa-profile"
     staging = "aws-staging-profile"
     prod    = "aws-prod-profile"
@@ -92,4 +92,5 @@ variable "instance_type" {
     staging = "c5d.4xlarge"
     prod    = "c5d.4xlarge"
   }
+}
 

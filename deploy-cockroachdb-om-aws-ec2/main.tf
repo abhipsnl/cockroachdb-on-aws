@@ -7,7 +7,7 @@ locals {
   instance_type = var.instance_type[local.environment]
 }
 
-module "create_vpc" {
+module "create_cockroachdb_environment" {
   source = "git::https://github.com/sharmajee1/cockroachdb-on-aws.git//terraform-modules/computing"
   
   private_key_path = var.private_key_path
