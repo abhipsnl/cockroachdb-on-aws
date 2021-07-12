@@ -12,6 +12,6 @@ module "create_vpc" {
   private_key_path = var.private_key_path
   public_key_path = var.public_key_path
   region = local.region
-  count = local.count
+  instance_count = local.count
   ami = local.ami
 }

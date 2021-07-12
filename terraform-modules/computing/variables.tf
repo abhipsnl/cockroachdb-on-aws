@@ -3,9 +3,7 @@ variable "region" {
 }
 
 variable "ami" {
-    type = map
-    
-    default = {}
+    type = string
 }
 
 variable "instance_count" {
