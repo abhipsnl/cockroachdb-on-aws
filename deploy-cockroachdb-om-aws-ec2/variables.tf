@@ -71,14 +71,14 @@ variable "instance_count" {
   }
 }
 
-variable "PRIVATE_KEY_PATH" {
+variable "private_key_path" {
   default = "../scripts/ssh/cockroachdb-node"
 }
 
-variable "PUBLIC_KEY_PATH" {
+variable "public_key_path" {
   default = "../scripts/ssh/cockroachdb-node.pub"
 }
 
-variable "EC2_USER" {
+variable "ec2_user" {
   default = "ubuntu"
 }

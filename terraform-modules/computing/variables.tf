@@ -15,14 +15,14 @@ variable "instance_count" {
   default = "2"
 }
 
-variable "PRIVATE_KEY_PATH" {
+variable "private_key_path" {
   type = string
 }
 
-variable "PUBLIC_KEY_PATH" {
+variable "public_key_path" {
   type = string
 }
 
-variable "EC2_USER" {
+variable "ec2_user" {
   default = "ubuntu"
 }

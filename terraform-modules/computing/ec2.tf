@@ -17,24 +17,24 @@ resource "aws_instance" "cockroachdb-node" {
     }
     # nginx installation
     provisioner "file" {
-        source = "nginx.sh"
-        destination = "/tmp/nginx.sh"
+        source = "../scripts/test.sh"
+        destination = "/tmp/test.sh"
     }
     provisioner "remote-exec" {
         inline = [
-             "chmod +x /tmp/nginx.sh",
-             "sudo /tmp/nginx.sh"
+             "chmod +x /tmp/test.sh",
+             "sh /tmp/test.sh"
         ]
     }
     connection {
-        user = var.EC2_USER
+        user = var.ec2_user
         host = self.private_ip
-        private_key = file(var.PRIVATE_KEY_PATH)
+        private_key = file(var.private_key_path)
     }
 }
 
 // Sends your public key to the instance
 resource "aws_key_pair" "cockroachdb-key-pair" {
     key_name = "cockroachdb-key-pair"
-    public_key = file(var.PUBLIC_KEY_PATH)
+    public_key = file(var.public_key_path)
 }
