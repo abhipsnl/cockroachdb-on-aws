@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "abhishek-terraform-backend"
-    region         = "ap-south-1"
+    bucket         = "abhishek-p2-terraform-backend"
+    region         = "us-east-1"
     key            = "terraform-state"
-    profile        = "aws-dev-profile"
+    profile        = "dev"
     dynamodb_table = "terraform-lock"
   }
 }

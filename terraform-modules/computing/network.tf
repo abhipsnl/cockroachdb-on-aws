@@ -43,11 +43,20 @@ resource "aws_security_group" "cockroachdb-allowed" {
         // Put your office or home address in it!
         cidr_blocks = ["0.0.0.0/0"]
     }
-    //If you do not add this rule, you can not reach the NGIX  
+    //If you do not add this rule, you can not reach the console
     ingress {
         from_port = 8080
         to_port = 8080
         protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        // This means, all ip address are allowed to ssh !
+        // Do not do it in the production.
+        // Put your office or home address in it!
         cidr_blocks = ["0.0.0.0/0"]
     }
     tags = {

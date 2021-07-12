@@ -32,9 +32,9 @@ variable "environment_to_region_map" {
   type = map
   description = "Map region for env"
   default = {
-    dev     = "ap-south-1"
-    qa      = "us-east-1"
-    staging = "us-east-1"
+    dev     = "us-east-1"
+    qa      = "us-east-2"
+    staging = "us-west-1"
     prod    = "us-east-2"
   }
 }
@@ -43,7 +43,7 @@ variable "environment_to_profile_map" {
   type = map
   description = "Map aws cli profile based on the workspace"
   default = {
-    dev     = "test-profile"
+    dev     = "dev"
     qa      = "aws-qa-profile"
     staging = "aws-staging-profile"
     prod    = "aws-prod-profile"
