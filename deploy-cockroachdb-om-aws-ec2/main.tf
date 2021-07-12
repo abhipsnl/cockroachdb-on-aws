@@ -9,7 +9,9 @@ locals {
 module "create_vpc" {
   source = "git::https://github.com/sharmajee1/cockroachdb-on-aws.git//terraform-modules/computing"
   
-  PRIVATE_KEY_PATH = ""
-  PUBLIC_KEY_PATH = ""
+  private_key_path = var.private_key_path
+  public_key_path = var.public_key_path
   region = local.region
+  count = local.count
+  ami = local.ami
 }
