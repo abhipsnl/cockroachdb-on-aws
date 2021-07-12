@@ -72,11 +72,11 @@ variable "instance_count" {
 }
 
 variable "private_key_path" {
-  default = "../scripts/ssh/cockroachdb-node"
+  default = "/Users/abhishek.sh/personal-proj/cockroachdb-on-aws/scripts/ssh/cockroachdb-node"
 }
 
 variable "public_key_path" {
-  default = "../scripts/ssh/cockroachdb-node.pub"
+  default = "/Users/abhishek.sh/personal-proj/cockroachdb-on-aws/scripts/ssh/cockroachdb-node.pub"
 }
 
 variable "ec2_user" {
