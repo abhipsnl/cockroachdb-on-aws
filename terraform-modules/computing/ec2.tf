@@ -28,7 +28,7 @@ resource "aws_instance" "cockroachdb-node" {
     }
     connection {
         user = var.ec2_user
-        host = self.private_ip
+        host = self.public_ip
         private_key = file(var.private_key_path)
     }
 

@@ -19,7 +19,7 @@ variable "public_key_path" {
 }
 
 variable "ec2_user" {
-  default = "ubuntu"
+  type = string
 }
 
 variable "instance_type" {
