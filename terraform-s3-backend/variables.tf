@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "prefix" {
-  default = "abhishek"
+  default = "epifi-assignment"
 }
 
 variable "algorithm" {
