@@ -65,7 +65,7 @@ resource "aws_security_group" "cockroachdb-allowed" {
 }
 
 resource "aws_lb" "alb" {
-  name               = terraform.workspace-cockroachdb-lb
+  name               = "${terraform.workspace}-cockroachdb-lb"
   internal           = true
   load_balancer_type = "network"
   subnets            = [aws_subnet.test-subnet-public-1.id, aws_subnet.test-subnet-private-1.id]
@@ -73,7 +73,7 @@ resource "aws_lb" "alb" {
   enable_deletion_protection = false
 
   tags = {
-    Name = terraform.workspace-cockroachdb-lb
+    Name = "${terraform.workspace}-cockroachdb-lb"
     Environment = terraform.workspace
     Creator     = "Terraform"
   }
@@ -91,7 +91,7 @@ resource "aws_alb_listener" "cockroachdb_service_listener" {
 }
 
 resource "aws_lb_target_group" "cockroachdb_service_tg" {
-  name     = terraform.workspace-cockroachdb-service-tg
+  name     = "${terraform.workspace}-cockroachdb-service-tg"
   port     = 26257
   protocol = "TCP"
   vpc_id   = aws_vpc.test-vpc.id
