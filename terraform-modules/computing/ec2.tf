@@ -15,27 +15,6 @@ resource "aws_instance" "cockroachdb-node" {
     tags = {
     Name  = "Terraform-${count.index + 1}"
     }
-    # app installation
-    provisioner "file" {
-        source = "../scripts/test.sh"
-        destination = "/tmp/test.sh"
-    }
-    provisioner "remote-exec" {
-        inline = [
-             "chmod +x /tmp/test.sh",
-             "sh /tmp/test.sh"
-        ]
-    }
-    connection {
-        user = var.ec2_user
-        host = self.private_ip
-        private_key = file(var.private_key_path)
-    }
-
-    timeouts {
-    create = "60m"
-    delete = "2h"
-    }
 }
 
 resource "aws_instance" "bastion_instance" {
@@ -56,4 +35,12 @@ resource "aws_instance" "bastion_instance" {
 resource "aws_key_pair" "cockroachdb-key-pair" {
     key_name = "cockroachdb-key-pair"
     public_key = file(var.public_key_path)
+}
+
+resource "aws_eip" "bastion_eip" {
+  instance = aws_instance.bastion_instance.id
+
+  tags = {
+    "Name" = "Bastion Elastic IP"
+  }
 }

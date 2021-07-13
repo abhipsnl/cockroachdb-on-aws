@@ -41,3 +41,12 @@ variable "private_subnet_map_1" {
 variable "private_subnet_map_2" {
   type = string
 }
+
+variable "cockroach_binary" {
+  default = ""
+}
+
+# SHA of the cockroach binary to pull down. If none, the latest is fetched.
+variable "cockroach_sha" {
+  default = ""
+}
