@@ -7,7 +7,7 @@ function install_cockroachdb_cli() {
 
     if [ -f /usr/local/bin/cockroach ];then
         echo "Already installed, skipping"
-        exit 0
+        return 0
     fi
 
     wget -qO- https://binaries.cockroachdb.com/cockroach-${VERSION}.linux-amd64.tgz | tar  xvz
