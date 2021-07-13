@@ -77,7 +77,9 @@ resource "aws_subnet" "test_public_subnet" {
   vpc_id            = aws_vpc.test-vpc.id
   cidr_block        = var.public_subnet_map
   availability_zone = "${var.region}a"
-  depends_on        = aws_internet_gateway.test-igw
+  depends_on        = [ 
+       aws_internet_gateway.test-igw,
+  ]
 
   tags = {
     Name        = "test_public_subnet"
