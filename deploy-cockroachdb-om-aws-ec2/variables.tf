@@ -15,10 +15,10 @@ variable "environment_to_region_map" {
   description = "Map region for env"
   default = {
     default = "us-east-1"
-    dev     = "us-east-1"
+    dev     = "us-east-2"
     qa      = "us-east-2"
     staging = "us-west-1"
-    prod    = "us-east-2"
+    prod    = "ap-south-1"
   }
 }
 
@@ -39,9 +39,9 @@ variable "ami" {
 
     default = {
         default    = "ami-008a8487adc2b32ec"
-        ap-south-1 = "ami-008a8487adc2b32ec"
-        eu-west-2  = "ami-03dea29b0216a1e03"
-        us-east-1  = "ami-0c2a1acae6667e438"
+        ap-south-1 = "ami-059d1007dcf297b22"
+        us-east-2  = "ami-02de934ca4f3289e0"
+        us-east-1  = "ami-008a8487adc2b32ec"
     }
 }
 
