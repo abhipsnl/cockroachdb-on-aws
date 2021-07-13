@@ -2,6 +2,7 @@ variable "workspace_to_environment_map" {
   type = map
   description = "Map environments name for workspace"
   default = {
+    default = "dev"
     dev     = "dev"
     qa      = "qa"
     staging = "staging"
@@ -9,29 +10,11 @@ variable "workspace_to_environment_map" {
   }
 }
 
-variable "environment_to_size_map" {
-  type = map
-  description = "Map Instance Size for env"
-  default = {
-    dev     = "small"
-    qa      = "medium"
-    staging = "large"
-    prod    = "xlarge"
-  }
-}
-
-variable "workspace_to_size_map" {
-  type = map
-  description = "Map instance size for local developers"
-  default = {
-    dev = "small"
-  }
-}
-
 variable "environment_to_region_map" {
   type = map
   description = "Map region for env"
   default = {
+    default = "us-east-1"
     dev     = "us-east-1"
     qa      = "us-east-2"
     staging = "us-west-1"
@@ -43,6 +26,7 @@ variable "environment_to_profile_map" {
   type = map
   description = "Map aws cli profile based on the workspace"
   default = {
+    default = "dev"
     dev     = "dev"
     qa      = "aws-qa-profile"
     staging = "aws-staging-profile"
@@ -54,9 +38,10 @@ variable "ami" {
     type = map
 
     default = {
+        default    = "ami-0c2a1acae6667e438"
         ap-south-1 = "ami-059d1007dcf297b22"
-        eu-west-2 = "ami-03dea29b0216a1e03"
-        us-east-1 = "ami-0c2a1acae6667e438"
+        eu-west-2  = "ami-03dea29b0216a1e03"
+        us-east-1  = "ami-0c2a1acae6667e438"
     }
 }
 
@@ -64,6 +49,7 @@ variable "instance_count" {
   type = map
   description = "Map instance count based on the workspace"
   default = {
+    default = "2"
     dev     = "2"
     qa      = "3"
     staging = "4"
