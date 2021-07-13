@@ -17,4 +17,5 @@ module "create_cockroachdb_environment" {
   ami = local.ami
   instance_type = local.instance_type
   ec2_user = var.ec2_user
+  cidr_block = var.vpc_cidr_map[terraform.workspace]
 }

@@ -94,3 +94,43 @@ variable "instance_type" {
   }
 }
 
+
+variable "vpc_cidr_map" {
+  type = "map"
+  default = {
+    default     = "10.18.0.0/16"
+    dev         = "10.18.0.0/16"
+    staging     = "10.19.0.0/16"
+    prod        = "10.20.0.0/16"
+  }
+}
+
+variable "public_subnet_map" {
+  type = "map"
+  default = {
+    default     = "10.18.0.0/22"
+    dev         = "10.18.0.0/22"
+    staging     = "10.19.0.0/22"
+    prod        = "10.20.0.0/22"
+  }
+}
+
+variable "private_subnet_map_1" {
+  type = "map"
+  default = {
+    default      = "10.18.8.0/22"
+    dev          = "10.18.8.0/22"
+    staging      = "10.19.8.0/22"
+    prod         = "10.20.8.0/22"
+  }
+}
+
+variable "private_subnet_map_2" {
+  type = "map"
+  default = {
+    default     = "10.18.12.0/22"
+    dev         = "10.18.12.0/22"
+    staging     = "10.19.12.0/22"
+    prod        = "10.20.12.0/22"
+  }
+}

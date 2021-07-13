@@ -21,12 +21,13 @@ resource "aws_route_table" "test-public-crt" {
 }
 
 resource "aws_route_table_association" "test-crta-public-subnet-1"{
-    subnet_id = aws_subnet.test-subnet-public-1.id
+    subnet_id = aws_subnet.test-subnet-public.id
     route_table_id = aws_route_table.test-public-crt.id
 }
 
 resource "aws_security_group" "cockroachdb-allowed" {
     vpc_id = aws_vpc.test-vpc.id
+    name   = "${terraform.workspace} cockroachdb Security Group"
     
     egress {
         from_port = 0
@@ -64,11 +65,38 @@ resource "aws_security_group" "cockroachdb-allowed" {
     }
 }
 
+
+resource "aws_security_group" "bastion_sg" {
+  name   = "${terraform.workspace} Bastion Security Group"
+  vpc_id = aws_vpc.test-vpc.id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8008
+    to_port     = 8080
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_lb" "alb" {
   name               = "${terraform.workspace}-cockroachdb-lb"
   internal           = true
   load_balancer_type = "network"
-  subnets            = [aws_subnet.test-subnet-public-1.id, aws_subnet.test-subnet-private-1.id]
+  subnets            = [aws_subnet.test-subnet-private-1.id, aws_subnet.test-subnet-private-2.id]
 
   enable_deletion_protection = false
 

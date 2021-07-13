@@ -25,3 +25,19 @@ variable "ec2_user" {
 variable "instance_type" {
   type = string
 }
+
+variable "vpc_cidr_map" {
+  type = string
+}
+
+variable "public_subnet_map" {
+  type = string
+}
+
+variable "private_subnet_map_1" {
+  type = string
+}
+
+variable "private_subnet_map_2" {
+  type = string
+}

@@ -17,9 +17,9 @@ output "key_name" {
   value       = aws_instance.cockroachdb-node.*.key_name
 }
 
-output "public_ip" {
+output "bastion_public_ip" {
   description = "List of public IP addresses assigned to the instances, if applicable"
-  value       = aws_instance.cockroachdb-node.*.public_ip
+  value       = aws_instance.bastion_instance.*.public_ip
 }
 
 output "private_ip" {
