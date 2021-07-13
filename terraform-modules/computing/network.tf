@@ -1,29 +1,125 @@
+resource "aws_vpc" "test-vpc" {
+    cidr_block = var.vpc_cidr_map
+    enable_dns_support = "true" #gives you an internal domain name
+    enable_dns_hostnames = "true" #gives you an internal host name
+    enable_classiclink = "false"
+    instance_tenancy = "default"
+
+    tags = {
+        Name = "test-vpc"
+    }
+}
+
 resource "aws_internet_gateway" "test-igw" {
-    vpc_id = aws_vpc.test-vpc.id
-    tags = {
-        Name = "test-igw"
-    }
+  vpc_id = aws_vpc.test-vpc.id
+  tags = {
+    Name        = "test-igw"
+  }
 }
 
-resource "aws_route_table" "test-public-crt" {
-    vpc_id = aws_vpc.test-vpc.id
-    
-    route {
-        //associated subnet can reach everywhere
-        cidr_block = "0.0.0.0/0" 
-        //CRT uses this IGW to reach internet
-        gateway_id = aws_internet_gateway.test-igw.id
-    }
-    
-    tags = {
-        Name = "test-public-crt"
-    }
+resource "aws_eip" "test-nat" {
+  vpc = true
+  tags = {
+    Name        = "test-nat"
+  }
 }
 
-resource "aws_route_table_association" "test-crta-public-subnet-1"{
-    subnet_id = aws_subnet.test-subnet-public.id
-    route_table_id = aws_route_table.test-public-crt.id
+resource "aws_nat_gateway" "test-ngw" {
+  allocation_id = aws_eip.test-nat.id
+  subnet_id     = aws_subnet.test_public_subnet.id
+
+  tags = {
+    Name        = "test-ngw"
+  }
 }
+
+resource "aws_route_table" "test_igw_rt" {
+  vpc_id = aws_vpc.test-vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.test-igw.id
+  }
+
+  tags = {
+    Name        = "est_igw_rt"
+  }
+}
+
+resource "aws_route_table" "test_nat_rt_1" {
+  vpc_id = aws_vpc.test-vpc.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.test-ngw.id
+  }
+
+  tags = {
+    Name        = "test_nat_rt_1"
+  }
+}
+
+resource "aws_route_table" "test_nat_rt_2" {
+  vpc_id = aws_vpc.test-vpc.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.test-ngw.id
+  }
+
+  tags = {
+    Name        = "test_nat_rt_2"
+  }
+}
+
+
+resource "aws_subnet" "test_public_subnet" {
+  vpc_id            = aws_vpc.test-vpc.id
+  cidr_block        = var.public_subnet_map
+  availability_zone = "${var.region}a"
+  depends_on        = ["aws_internet_gateway.test-igw"]
+
+  tags = {
+    Name        = "test_public_subnet"
+  }
+}
+
+
+resource "aws_subnet" "test_private_subnet_1" {
+  vpc_id            = aws_vpc.test-vpc.id
+  cidr_block        = var.private_subnet_map_1
+  availability_zone = "${var.region}a"
+
+  tags = {
+    Name        = "test_private_subnet_1"
+  }
+}
+
+resource "aws_subnet" "test_private_subnet_2" {
+  vpc_id            = aws_vpc.test-vpc.id
+  cidr_block        = var.private_subnet_map_2
+  availability_zone = "${var.region}b"
+
+  tags = {
+    Name        = "test_private_subnet_2"
+  }
+}
+
+resource "aws_route_table_association" "test_public" {
+  subnet_id      = aws_subnet.test_public_subnet.id
+  route_table_id = aws_route_table.test_igw_rt.id
+}
+
+resource "aws_route_table_association" "test_private_1" {
+  subnet_id      = aws_subnet.test_private_subnet_1.id
+  route_table_id = aws_route_table.test_nat_rt_1.id
+}
+
+resource "aws_route_table_association" "test_private_2" {
+  subnet_id      = aws_subnet.test_private_subnet_2.id
+  route_table_id = aws_route_table.test_nat_rt_2.id
+}
+
 
 resource "aws_security_group" "cockroachdb-allowed" {
     vpc_id = aws_vpc.test-vpc.id
