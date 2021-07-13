@@ -20,6 +20,7 @@ resource "null_resource" "bastion-runner" {
       "sudo apt-get -y install nethogs",
       "mkdir -p logs",
       "chmod 755 cockroach",
+      "chmod +x /home/ubuntu/setup-cockroach.sh",
       "[ $(stat --format=%s cockroach) -ne 0 ] || sudo bash setup-cockroach.sh cockroach/cockroach var.cockroach_sha",
       "cockroach init --insecure --host=aws_instance.cockroachdb-node[0].private_ip}"
     ]
@@ -54,6 +55,7 @@ resource "null_resource" "cockroach-runner" {
   # Synchronize clocks and Launch CockroachDB.
   provisioner "remote-exec" {
     inline = [
+      "chmod +x /home/ubuntu/setup-cockroach.sh",
       "sudo apt-get -y update",
       "sudo apt install -y chrony",
       "sudo sed  -i '1i server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4' /etc/chrony/chrony.conf",

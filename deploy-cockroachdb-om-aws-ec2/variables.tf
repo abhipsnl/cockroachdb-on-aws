@@ -15,7 +15,7 @@ variable "environment_to_region_map" {
   description = "Map region for env"
   default = {
     default = "us-east-1"
-    dev     = "us-east-2"
+    dev     = "us-east-1"
     qa      = "us-east-2"
     staging = "us-west-1"
     prod    = "ap-south-1"
@@ -38,10 +38,10 @@ variable "ami" {
     type = map
 
     default = {
-        default    = "ami-008a8487adc2b32ec"
+        default    = "ami-0dd76f917833aac4b"
         ap-south-1 = "ami-059d1007dcf297b22"
         us-east-2  = "ami-02de934ca4f3289e0"
-        us-east-1  = "ami-008a8487adc2b32ec"
+        us-east-1  = "ami-0dd76f917833aac4b"
     }
 }
 
