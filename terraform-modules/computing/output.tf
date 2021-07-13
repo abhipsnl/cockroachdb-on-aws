@@ -39,5 +39,5 @@ output "instance_state" {
 
 output "lb_dns_name" {
   description = "The DNS name of the load balancer."
-  value       = concat(aws_lb.alb.*.dns_name, [""])[0]
+  value       = concat(aws_lb.test_alb.*.dns_name, [""])[0]
 }
