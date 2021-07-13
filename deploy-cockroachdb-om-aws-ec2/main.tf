@@ -17,5 +17,8 @@ module "create_cockroachdb_environment" {
   ami = local.ami
   instance_type = local.instance_type
   ec2_user = var.ec2_user
-  cidr_block = var.vpc_cidr_map[terraform.workspace]
+  vpc_cidr_map = var.vpc_cidr_map[terraform.workspace]
+  public_subnet_map = var.public_subnet_map[terraform.workspace]
+  private_subnet_map_1 = var.private_subnet_map_1[terraform.workspace]
+  private_subnet_map_2 = var.private_subnet_map_2[terraform.workspace]
 }

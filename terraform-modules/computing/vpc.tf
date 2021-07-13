@@ -32,7 +32,7 @@ resource "aws_subnet" "test-subnet-private-1" {
 
 resource "aws_subnet" "test-subnet-private-2" {
     vpc_id = aws_vpc.test-vpc.id
-    cidr_block = private_subnet_map_2
+    cidr_block = var.private_subnet_map_2
     map_public_ip_on_launch = "false" //it makes this a public subnet
 
     tags = {

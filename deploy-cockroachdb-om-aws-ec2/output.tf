@@ -17,7 +17,7 @@ output "key_name" {
   value       = module.create_cockroachdb_environment.key_name
 }
 
-output "public_ip" {
+output "bastion_public_ip" {
   description = "List of public IP addresses assigned to the instances, if applicable"
   value       = module.create_cockroachdb_environment.public_ip
 }

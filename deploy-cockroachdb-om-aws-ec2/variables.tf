@@ -96,7 +96,7 @@ variable "instance_type" {
 
 
 variable "vpc_cidr_map" {
-  type = "map"
+  type = map
   default = {
     default     = "10.18.0.0/16"
     dev         = "10.18.0.0/16"
@@ -106,7 +106,7 @@ variable "vpc_cidr_map" {
 }
 
 variable "public_subnet_map" {
-  type = "map"
+  type = map
   default = {
     default     = "10.18.0.0/22"
     dev         = "10.18.0.0/22"
@@ -116,7 +116,7 @@ variable "public_subnet_map" {
 }
 
 variable "private_subnet_map_1" {
-  type = "map"
+  type = map
   default = {
     default      = "10.18.8.0/22"
     dev          = "10.18.8.0/22"
@@ -126,7 +126,7 @@ variable "private_subnet_map_1" {
 }
 
 variable "private_subnet_map_2" {
-  type = "map"
+  type = map
   default = {
     default     = "10.18.12.0/22"
     dev         = "10.18.12.0/22"
