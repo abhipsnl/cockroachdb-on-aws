@@ -16,7 +16,7 @@ function install_cockroachdb_cli() {
         exit 1
     fi
 
-    cp cockroach-${VERSION}.linux-amd64/cockroach /usr/local/bin/ -f
+    cp cockroach-${VERSION}.darwin-10.9-amd64/cockroach /usr/local/bin/ -f
 
     mkdir /var/lib/cockroach
     useradd cockroach
