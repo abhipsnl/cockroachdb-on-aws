@@ -77,7 +77,7 @@ resource "aws_subnet" "test_public_subnet" {
   vpc_id            = aws_vpc.test-vpc.id
   cidr_block        = var.public_subnet_map
   availability_zone = "${var.region}a"
-  depends_on        = ["aws_internet_gateway.test-igw"]
+  depends_on        = aws_internet_gateway.test-igw
 
   tags = {
     Name        = "test_public_subnet"
@@ -188,23 +188,21 @@ resource "aws_security_group" "bastion_sg" {
   }
 }
 
-resource "aws_lb" "alb" {
+resource "aws_lb" "test_alb" {
   name               = "${terraform.workspace}-cockroachdb-lb"
   internal           = true
   load_balancer_type = "network"
-  subnets            = [aws_subnet.test-subnet-private-1.id, aws_subnet.test-subnet-private-2.id]
+  subnets            = [aws_subnet.test_private_subnet_1.id, aws_subnet.test_private_subnet_2.id]
 
   enable_deletion_protection = false
 
   tags = {
     Name = "${terraform.workspace}-cockroachdb-lb"
-    Environment = terraform.workspace
-    Creator     = "Terraform"
   }
 }
 
 resource "aws_alb_listener" "cockroachdb_service_listener" {
-  load_balancer_arn = aws_lb.alb.arn
+  load_balancer_arn = aws_lb.test_alb.arn
   port              = "26257"
   protocol          = "TCP"
   

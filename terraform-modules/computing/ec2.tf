@@ -4,7 +4,7 @@ resource "aws_instance" "cockroachdb-node" {
     instance_type = var.instance_type
 
     # VPC
-    subnet_id = aws_subnet.test-subnet-private-1.id
+    subnet_id = aws_subnet.test_private_subnet_1.id
 
     # Security Group
     vpc_security_group_ids = [aws_security_group.cockroachdb-allowed.id]
@@ -20,7 +20,7 @@ resource "aws_instance" "cockroachdb-node" {
 resource "aws_instance" "bastion_instance" {
   ami                    = var.ami
   instance_type          = "t3.micro"
-  subnet_id              = aws_subnet.test-subnet-public.id
+  subnet_id              = aws_subnet.test_public_subnet.id
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   key_name               = aws_key_pair.cockroachdb-key-pair.id
 
