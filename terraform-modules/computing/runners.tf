@@ -22,7 +22,7 @@ resource "null_resource" "bastion-runner" {
       "chmod 755 cockroach",
       "chmod +x /home/ubuntu/setup-cockroach.sh",
       "[ $(stat --format=%s cockroach) -ne 0 ] || sudo bash setup-cockroach.sh cockroach/cockroach var.cockroach_sha",
-      "cockroach init --insecure --host=aws_instance.cockroachdb-node[0].private_ip}"
+      "cockroach init --insecure --host=${aws_instance.cockroachdb-node[0].private_ip}"
     ]
   }
 }
@@ -64,7 +64,7 @@ resource "null_resource" "cockroach-runner" {
       "mkdir -p logs",
       "chmod 755 cockroach",
       "[ $(stat --format=%s cockroach) -ne 0 ] || sudo bash setup-cockroach.sh cockroach/cockroach var.cockroach_sha",
-      "cockroach start --insecure --advertise-addr=element(aws_instance.cockroachdb-node.*.private_ip, count.index)} --join=join(",", aws_instance.cockroachdb-node.*.private_ip) --cache=.25 --max-sql-memory=.25 --background"
+      "cockroach start --insecure --advertise-addr=${element(aws_instance.cockroachdb-node.*.private_ip, count.index)} --join=${join(",", aws_instance.cockroachdb-node.*.private_ip)} --cache=.25 --max-sql-memory=.25 --background"
     ]
   }
 }
