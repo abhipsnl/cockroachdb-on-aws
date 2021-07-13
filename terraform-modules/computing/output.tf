@@ -36,3 +36,8 @@ output "instance_state" {
   description = "List of instance states of instances"
   value       = aws_instance.cockroachdb-node.*.instance_state
 }
+
+output "lb_dns_name" {
+  description = "The DNS name of the load balancer."
+  value       = concat(aws_lb.alb.*.dns_name, [""])[0]
+}

@@ -36,3 +36,8 @@ output "instance_state" {
   description = "List of instance states of instances"
   value       = module.create_cockroachdb_environment.instance_state
 }
+
+output "lb_dns_name" {
+  description = "The DNS name of the load balancer."
+  value       =  module.create_cockroachdb_environment.lb_dns_name
+}
