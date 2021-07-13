@@ -34,10 +34,5 @@ output "security_groups" {
 
 output "instance_state" {
   description = "List of instance states of instances"
-  value       = module.create_cockroachdb_environment..instance_state
-}
-
-output "instance_count" {
-  description = "Number of instances to launch specified as argument to this module"
-  value       = var.instance_count
+  value       = module.create_cockroachdb_environment.instance_state
 }

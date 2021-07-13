@@ -36,8 +36,3 @@ output "instance_state" {
   description = "List of instance states of instances"
   value       = aws_instance.cockroachdb-node.*.instance_state
 }
-
-output "instance_count" {
-  description = "Number of instances to launch specified as argument to this module"
-  value       = var.instance_count
-}
