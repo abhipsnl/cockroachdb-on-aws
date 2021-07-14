@@ -228,7 +228,10 @@ terraform apply "cockroachdb_setup.tfplan"
 ```
 
 ## Test the Connection
-Copy the `bastion_public_ip` from above execution
+```diff
+@@ Copy the `bastion_public_ip` from above execution. @@
+```
+
 ```sh
 bastion_public_ip = "34.195.119.112"
 id = [
@@ -236,16 +239,19 @@ id = [
   "i-0959b35c961e34364",
 ]
 ```
-Login to bastion server.
 
-```sh
-ssh -i <pem-file> ubuntu@<public-ip-of-bastion-instance>
+```diff
+@@ Copy the `lb_dns_name` name from above execution. @@
 ```
 
-Copy the `lb_dns_name` name from above execution.
+Login to bastion server, execute below command from your local server.
 
 ```sh
-cockroach node status --insecure --host=<private-DNS-of-internal-loadbalancer>
+ssh -i <pem-file> ubuntu@<bastion_public_ip>
+```
+
+```sh
+cockroach node status --insecure --host=<lb_dns_name>
 ```
 
 <!-- LICENSE -->
