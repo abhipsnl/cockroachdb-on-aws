@@ -50,7 +50,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Prerequisite</a></li>
+        <li><a href="#prerequisite">Prerequisite</a></li>
       </ul>
     </li>
     <li>
