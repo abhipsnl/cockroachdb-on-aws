@@ -248,6 +248,7 @@ Login to bastion server, execute below command from your local server.
 ssh -i <pem-file> ubuntu@<bastion_public_ip>
 ```
 
+From bastion server execute below command.
 ```sh
 cockroach node status --insecure --host=<lb_dns_name>
 ```
