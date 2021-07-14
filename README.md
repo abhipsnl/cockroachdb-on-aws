@@ -50,8 +50,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#prerequisite">Prerequisite</a></li>
         <li><a href="#sow">Scope of Work</a></li>
+        <li><a href="#overview">Overview</a></li>
       </ul>
     </li>
     <li>
@@ -77,13 +77,19 @@
 
 This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 
-###Scope of work
+### Scope of Work
 -------------
 * This is not production ready
 * bastion host will be hosted on public subnet and cockroachdb instance will be hosted on private subnet.
 * Loadbalancer to route requests to all the nodes on port 26257
 * In this terraform project , cockroachdb service is not being deployed as a systemd
 
+
+### Overview
+* Setup S3 backend for terraform state. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+* Generate ssh-keygen for Cockroachdb instances. [details](https://github.com/sharmajee1/cockroachdb-on-aws/blob/main/scripts/create-ssh-keygn.sh)
+* Setup Cockroachdb on AWS EC2. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/deploy-cockroachdb-om-aws-ec2)
+* terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
 ### Prerequisite
 
@@ -102,13 +108,15 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Prerequisite
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+`AWS Account` An active AWS account.
+
+`aws cli ( >= 2.1.28)` aws cli need to be installed. [Need help ?](https://aws.amazon.com/cli/).
+
+`terraform (>= v0.14.7)`  terraform cli need to be installed. [Need help ?](https://www.terraform.io/downloads.html)
+
+`Github code for this assignment` [here](https://github.com/sharmajee1/cockroachdb-on-aws.git)
 
 ### Installation
 
