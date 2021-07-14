@@ -91,16 +91,6 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 * Setup Cockroachdb on AWS EC2. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/deploy-cockroachdb-om-aws-ec2)
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
-### Prerequisite
-
-`AWS Account` An active AWS account.
-
-`aws cli ( >= 2.1.28)` aws cli need to be installed. [Need help ?](https://aws.amazon.com/cli/).
-
-`terraform (>= v0.14.7)`  terraform cli need to be installed. [Need help ?](https://www.terraform.io/downloads.html)
-
-`Github code for this assignment` [here](https://github.com/sharmajee1/cockroachdb-on-aws.git)
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
