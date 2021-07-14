@@ -124,8 +124,8 @@ cd terraform-s3-backend
 ```
 
 ```diff
-@@ setup your default variables `👉` variables.tf under terraform-s3-backend
-@@ [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+@@ setup your default variables `👉` variables.tf under terraform-s3-backend @@
+@@ [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend) @@
 ```
 
 ```sh
@@ -135,7 +135,7 @@ terraform plan -out=your_plan_name.tfplan
 terraform apply "your_plan_name.tfplan"
 ```
 ```diff
-@ Copy `state_bucket_arn` URL from above output, this will be required for `Setup cockroachDB on AWS` step.
+@@ Copy `state_bucket_arn` URL from above output, this will be required for `Setup cockroachDB on AWS` step. @@
 ```
 
 ```sh
@@ -145,7 +145,7 @@ state_bucket_arn = "arn:aws:s3:::abhishek-temp-terraform-backend"
 
 ## Generate ssh keys for cockroachDB
 ```diff
-! Skip this step only if you already ssh keys ready for this setup
+! Skip this step only if you already have ssh keys ready for this setup.
 ```
 
 ```sh
