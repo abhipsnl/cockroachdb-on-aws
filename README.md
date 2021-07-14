@@ -61,7 +61,9 @@
         <li><a href="#general-setup">General setup</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#setup-s3-backend">Setup S3 backend</a></li>
+    <li><a href="#generate-ssh-keys-for-cockroachdb">Generate ssh keys for cockroachDB</a></li>
+    <li><a href="#setup-cockroachsb-on-aws">Setup cockroachDB on AWS</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -111,13 +113,25 @@ cd cockroachdb-on-aws
 ```
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+## Setup S3 backend
+if above steps are done, please perform below steps.
+```sh
+cd terraform-s3-backend
+```
+setup your default variables 👉 variables.tf under terraform-s3-backend
+[Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+```sh
+# Once above steps are done, please perform below commands
+terraform init
+terraform plan -out=your_plan_name.tfplan
+terraform apply "your_plan_name.tfplan"
+```
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Generate ssh keys for cockroachDB
+foo
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+## Setup cockroachDB on AWS
+foo
 
 <!-- LICENSE -->
 ## License
@@ -129,12 +143,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
+Author : abhishek sharma [profile](https://github.com/sharmajee1)
 Project Link: [https://github.com/sharmajee1/cockroachdb-on-aws.git](https://github.com/sharmajee1/cockroachdb-on-aws.git)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+* [https://www.cockroachlabs.com/docs/stable/deploy-cockroachdb-on-aws.html](https://www.cockroachlabs.com/docs/stable/deploy-cockroachdb-on-aws.html)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
