@@ -63,7 +63,7 @@
     </li>
     <li><a href="#setup-s3-backend">Setup S3 backend</a></li>
     <li><a href="#generate-ssh-keys-for-cockroachdb">Generate ssh keys for cockroachDB</a></li>
-    <li><a href="#setup-cockroachsb-on-aws">Setup cockroachDB on AWS</a></li>
+    <li><a href="#setup-cockroachdb-on-aws">Setup cockroachDB on AWS</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -114,6 +114,8 @@ cd cockroachdb-on-aws
 
 
 ## Setup S3 backend
+*Skip this step only if you already have S3 backend setup*
+
 if above steps are done, please perform below steps.
 ```sh
 cd terraform-s3-backend
@@ -126,9 +128,23 @@ terraform init
 terraform plan -out=your_plan_name.tfplan
 terraform apply "your_plan_name.tfplan"
 ```
+Copy `state_bucket_arn` URL from above output, this will be required for `Setup cockroachDB on AWS` step.
+```sh
+#example
+state_bucket_arn = "arn:aws:s3:::abhishek-temp-terraform-backend"
+```
 
 ## Generate ssh keys for cockroachDB
-foo
+*Skip this step only if you already ssh keys ready for this setup*
+```sh
+# From base dir go inside scripts
+cd scripts
+bash create-ssh-keygn.sh
+```
+Above script will create ./ssh and ssh-keys, please see below example.
+scripts/ssh
+├── cockroachdb-node
+└── cockroachdb-node.pub
 
 ## Setup cockroachDB on AWS
 foo
