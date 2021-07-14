@@ -218,10 +218,12 @@ variable "public_key_path" {
   default = "/Users/abhishek.sh/personal-proj/cockroachdb-on-aws/scripts/ssh/cockroachdb-node.pub"
 }
 ```
-We are good to proceed further, just for safer side , validate your new changes
+Execute the final steps
 ```sh
+# Once above steps are done, please perform below commands
 terraform init
-terraform validate
+terraform plan -out=cockroachdb_setup.tfplan
+terraform apply "cockroachdb_setup.tfplan"
 ```
 
 <!-- LICENSE -->
