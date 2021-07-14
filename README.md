@@ -91,7 +91,7 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
 Complete flow diagram of terraform state
-![Alt text](deploy-cockroachdb-om-aws-ec2/graph.svg?raw=true "Graph")
+![Alt text](deploy-cockroachdb-om-aws-ec2/plan.png?raw=true "Graph")
 
 <!-- GETTING STARTED -->
 ## Getting Started
