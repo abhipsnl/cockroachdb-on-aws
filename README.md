@@ -125,8 +125,8 @@ cd terraform-s3-backend
 
 ```diff
 @@ setup your default variables `👉` variables.tf under terraform-s3-backend @@
-@@ [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend) @@
 ```
+[Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend) 
 
 ```sh
 # Once above steps are done, please perform below commands
@@ -135,7 +135,7 @@ terraform plan -out=your_plan_name.tfplan
 terraform apply "your_plan_name.tfplan"
 ```
 ```diff
-@@ Copy `state_bucket_arn` URL from above output, this will be required for `Setup cockroachDB on AWS` step. @@
+@@ Copy `state_bucket_arn` URL from above execution, this will be required for `Setup cockroachDB on AWS` step. @@
 ```
 
 ```sh
@@ -149,7 +149,7 @@ state_bucket_arn = "arn:aws:s3:::abhishek-temp-terraform-backend"
 ```
 
 ```sh
-# From base dir go inside scripts
+# From base dir `cockroachdb-on-aws` go inside scripts dir.
 cd scripts
 bash create-ssh-keygn.sh
 ```
@@ -162,7 +162,44 @@ scripts/ssh
 ```
 
 ## Setup cockroachDB on AWS
-foo
+Go back to base dir `cockroachdb-on-aws`
+From base dir perform below steps.
+
+```sh
+cd deploy-cockroachdb-om-aws-ec2
+```
+
+```diff
+! Before performing next steps , please update your aws profile name for `environment_to_profile_map` variable in variables.tf
+```
+```sh
+# Example
+  default = {
+    default = "dev"
+    dev     = "dev"
+    qa      = "aws-qa-profile"
+    staging = "aws-staging-profile"
+    prod    = "aws-prod-profile"
+}
+```
+
+```diff
+! Before performing next steps , please update your ssh keys for `private_key_path` and `public_key_path` variable in variables.tf
+```
+```sh
+variable "private_key_path" {
+  default = "/Users/abhishek.sh/personal-proj/cockroachdb-on-aws/scripts/ssh/cockroachdb-node"
+}
+
+variable "public_key_path" {
+  default = "/Users/abhishek.sh/personal-proj/cockroachdb-on-aws/scripts/ssh/cockroachdb-node.pub"
+}
+```
+We are good to proceed further, just for safer side , validate your new changes
+```sh
+terraform init
+terraform validate
+```
 
 <!-- LICENSE -->
 ## License
