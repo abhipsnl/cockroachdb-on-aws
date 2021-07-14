@@ -118,7 +118,7 @@ if above steps are done, please perform below steps.
 ```sh
 cd terraform-s3-backend
 ```
-setup your default variables 👉 variables.tf under terraform-s3-backend
+setup your default variables `👉` variables.tf under terraform-s3-backend
 [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
 ```sh
 # Once above steps are done, please perform below commands
@@ -142,10 +142,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Author : abhishek sharma [profile](https://github.com/sharmajee1)
-Project Link: [https://github.com/sharmajee1/cockroachdb-on-aws.git](https://github.com/sharmajee1/cockroachdb-on-aws.git)
-
+`Author` abhishek sharma [profile](https://github.com/sharmajee1)
+`Project Link` [https://github.com/sharmajee1/cockroachdb-on-aws.git](https://github.com/sharmajee1/cockroachdb-on-aws.git)
 
 
 <!-- ACKNOWLEDGEMENTS -->
