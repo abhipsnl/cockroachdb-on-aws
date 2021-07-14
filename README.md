@@ -90,6 +90,7 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 * Setup Cockroachdb on AWS EC2. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/deploy-cockroachdb-om-aws-ec2)
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
+![Alt text](deploy-cockroachdb-om-aws-ec2/graph.svg?raw=true "Graph")
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -170,16 +171,37 @@ cd deploy-cockroachdb-om-aws-ec2
 ```
 
 ```diff
+! Before performing next steps , please update your state.tf, details can be found from step `Setup S3 backend`
+```
+
+```sh
+# Example
+terraform {
+  backend "s3" {
+    bucket         = "abhishek-temp-terraform-backend"
+    region         = "us-east-1"
+    key            = "terraform-state"
+    profile        = "dev"
+    dynamodb_table = "terraform-lock"
+  }
+}
+```
+
+```diff
 ! Before performing next steps , please update your aws profile name for `environment_to_profile_map` variable in variables.tf
 ```
 ```sh
 # Example
+variable "environment_to_profile_map" {
+  type = map
+  description = "Map aws cli profile based on the workspace"
   default = {
     default = "dev"
     dev     = "dev"
     qa      = "aws-qa-profile"
     staging = "aws-staging-profile"
     prod    = "aws-prod-profile"
+  }
 }
 ```
 
