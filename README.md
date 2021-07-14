@@ -59,6 +59,7 @@
         <li><a href="#general-setup">General setup</a></li>
       </ul>
     </li>
+    <li><a href="#quick-demo">Quick Demo</a></li>
     <li><a href="#setup-s3-backend">Setup S3 backend</a></li>
     <li><a href="#generate-ssh-keys-for-cockroachdb">Generate ssh keys for cockroachDB</a></li>
     <li><a href="#setup-cockroachdb-on-aws">Setup cockroachDB on AWS</a></li>
@@ -90,7 +91,7 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 * Setup Cockroachdb on AWS EC2. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/deploy-cockroachdb-om-aws-ec2)
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
-Quick demo
+## Quick Demo
 
 https://drive.google.com/file/d/1z1ic7Ior_Xz4GvBPfS_oJaCg7lrabKWG/view?usp=sharing
 
