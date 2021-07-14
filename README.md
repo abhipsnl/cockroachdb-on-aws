@@ -63,6 +63,7 @@
     <li><a href="#generate-ssh-keys-for-cockroachdb">Generate ssh keys for cockroachDB</a></li>
     <li><a href="#setup-cockroachdb-on-aws">Setup cockroachDB on AWS</a></li>
     <li><a href="#test-the-connection">Test the Connection</a></li>
+    <li><a href="#cleanup">Cleanup</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -251,6 +252,11 @@ ssh -i <pem-file> ubuntu@<bastion_public_ip>
 From bastion server execute below command.
 ```sh
 cockroach node status --insecure --host=<lb_dns_name>
+```
+## cleanup
+Once you are done with your testing, you can destroy your deployments
+```sh
+terraform destroy "cockroachdb_setup.tfplan"
 ```
 
 <!-- LICENSE -->
