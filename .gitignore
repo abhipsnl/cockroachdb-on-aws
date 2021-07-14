@@ -30,3 +30,5 @@ override.tf.json
 
 # Ssh keys
 scripts/ssh
+
+.DS_Store

@@ -19,7 +19,7 @@ output "key_name" {
 
 output "bastion_public_ip" {
   description = "List of public IP addresses assigned to the instances, if applicable"
-  value       = aws_instance.bastion_instance.*.public_ip
+  value       = aws_eip.bastion_eip.public_ip
 }
 
 output "private_ip" {
