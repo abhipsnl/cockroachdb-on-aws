@@ -5,7 +5,7 @@ Description
 -------------
 This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 
-<br /><br />
+<br />
 prerequisite
 --------------
 `AWS Account` An active AWS account.
@@ -16,7 +16,7 @@ prerequisite
 
 `Github code for this assignment ` [here](https://github.com/sharmajee1/cockroachdb-on-aws.git)
 
-<br /><br />
+<br />
 Overview
 -----------
 * Setup S3 backend for terraform state. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
@@ -25,17 +25,17 @@ Overview
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
 
-<br /><br />
+<br />
 Fully automated
 -----------------
 
 
-<br /><br />
+<br />
 Manual execution
 -----------------
 
 
-<br /><br />
+<br />
 Example
 ---------
 1) git clone https://github.com/sharmajee1/assignment-embibe.git
@@ -54,11 +54,11 @@ Docker Way
 ./docker-build-run.sh
 
 
-<br /><br />
+<br />
 Infrastructure as a Code
 --------------------------
 `ansible-playbook infrastructure-as-a-code/github-watchdog-playbook.yml`
-<br /><br />
+
 Author
 ------
 Abhishek Sharma ( github sharmajee1)
