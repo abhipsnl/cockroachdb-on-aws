@@ -20,7 +20,7 @@ prerequisite
 
 `terraform (>= v0.14.7)`  terraform cli need to be installed. [Need help ?](https://www.terraform.io/downloads.html)
 
-`Github code for this assignment ` [here](https://github.com/sharmajee1/cockroachdb-on-aws.git)
+`Github code for this assignment` [here](https://github.com/sharmajee1/cockroachdb-on-aws.git)
 
 Overview
 -----------
@@ -39,11 +39,16 @@ cd cockroachdb-on-aws
 
 Automated 
 -----------------
+if above steps are done, please perform below steps.
 ```sh
-# if above step is done, please perform below steps.
 cd terraform-s3-backend
-
-# setup your default variables [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+```
+setup your default variables 👉 [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+```sh
+# Once above steps are done, please perform below commands
+terraform init
+terraform plan -out=your_plan_name.tfplan
+terraform apply "your_plan_name.tfplan"
 ```
 
 Manual execution
