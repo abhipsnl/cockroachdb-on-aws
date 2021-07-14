@@ -5,6 +5,13 @@ Description
 -------------
 This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 
+Scope of work
+-------------
+* This is not production ready
+* bastion host will be hosted on public subnet and cockroachdb instance will be hosted on private subnet.
+* Loadbalancer to route requests to all the nodes on port 26257
+* In this terraform project , cockroachdb service is not being deployed as a systemd
+
 prerequisite
 --------------
 `AWS Account` An active AWS account.
@@ -23,35 +30,25 @@ Overview
 * terraform modules for this assignment. [details](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules)
 
 
-Fully automated
------------------
+General setup
+--------------
+```sh
+git clone https://github.com/sharmajee1/cockroachdb-on-aws.git
+cd cockroachdb-on-aws
+```
 
+Automated 
+-----------------
+```sh
+# if above step is done, please perform below steps.
+cd terraform-s3-backend
+
+# setup your default variables [Readme.md](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-s3-backend)
+```
 
 Manual execution
 -----------------
 
-
-Example
----------
-1) git clone https://github.com/sharmajee1/assignment-embibe.git
-
-2) Modify config/github_watchdog.conf based on your need.
-
-2) cd assignment-embibe && ./monolithic-way.sh
-
-3) service github-watchdog status 
-
-
-Docker Way
------------
-`NOTE` Docker should be install and running for this testing.
-
-./docker-build-run.sh
-
-
-Infrastructure as a Code
---------------------------
-`ansible-playbook infrastructure-as-a-code/github-watchdog-playbook.yml`
 
 Author
 ------

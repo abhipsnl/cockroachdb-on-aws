@@ -34,3 +34,11 @@ Output
 `iam_roles` IAM roles to be assumed by the backend.
 
 `state_bucket_arn` S3 bucket that stored the terraform state.
+
+Terraform modules for S3 backend
+---------------------------------
+[Full modules can be find here](https://github.com/sharmajee1/cockroachdb-on-aws/tree/main/terraform-modules/s3-backend)
+
+Author
+-------
+Abhishek Sharma [profile](https://github.com/sharmajee1)

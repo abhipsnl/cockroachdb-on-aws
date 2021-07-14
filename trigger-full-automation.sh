@@ -21,6 +21,8 @@ norm='\033[0m'
 green='\033[1;92m'
 cyan='\033[1;36m'
 
+S3_BACKEND_TERRAFORM_PATH="terraform-s3-backend"
+
 function display_message() {
     # Display function
     TEXT="$1"
@@ -47,6 +49,8 @@ function display_message() {
 
 function setup_s3_backend() {
     display_message "Preparing s3 backend for terraform" "INFO"
+    
 }
 
+# Main
 setup_s3_backend
