@@ -92,8 +92,8 @@ This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 
 Quick demo
 
-https://user-images.githubusercontent.com/27809898/125636706-29449762-77ce-4b4c-8913-e88d9ef081ef.mp4
 
+https://user-images.githubusercontent.com/27809898/125636903-7ea30cf0-a6a5-4be1-bcc4-1a9cfe439452.mp4
 
 
 <!-- GETTING STARTED -->
