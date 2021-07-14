@@ -51,6 +51,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#prerequisite">Prerequisite</a></li>
+        <li><a href="#sow">Scope of Work</a></li>
       </ul>
     </li>
     <li>
@@ -76,7 +77,7 @@
 
 This artifact will help you to deploy Cockroachdb on AWS ( EC2 ).
 
-Scope of work
+###Scope of work
 -------------
 * This is not production ready
 * bastion host will be hosted on public subnet and cockroachdb instance will be hosted on private subnet.
