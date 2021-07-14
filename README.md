@@ -64,6 +64,7 @@
     <li><a href="#setup-s3-backend">Setup S3 backend</a></li>
     <li><a href="#generate-ssh-keys-for-cockroachdb">Generate ssh keys for cockroachDB</a></li>
     <li><a href="#setup-cockroachdb-on-aws">Setup cockroachDB on AWS</a></li>
+    <li><a href="#test-the-connection">Test the Connection</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -224,6 +225,27 @@ Execute the final steps
 terraform init
 terraform plan -out=cockroachdb_setup.tfplan
 terraform apply "cockroachdb_setup.tfplan"
+```
+
+## Test the Connection
+Copy the `bastion_public_ip` from above execution
+```sh
+bastion_public_ip = "34.195.119.112"
+id = [
+  "i-0beac6f4d8a904091",
+  "i-0959b35c961e34364",
+]
+```
+Login to bastion server.
+
+```sh
+ssh -i <pem-file> ubuntu@<public-ip-of-bastion-instance>
+```
+
+Copy the `lb_dns_name` name from above execution.
+
+```sh
+cockroach node status --insecure --host=<private-DNS-of-internal-loadbalancer>
 ```
 
 <!-- LICENSE -->
